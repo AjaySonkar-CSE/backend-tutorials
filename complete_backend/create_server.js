@@ -11,7 +11,7 @@ const server = http.createServer((req, res) =>{
 
 // -----------------------  Routing---------------------
     console.log(req.url, req.method, req.headers)
-    if (req.url === 'demo'){
+    if (req.url === '/demo'){
             res.setHeader('Content-Type', 'text/html');
             res.write('<html>');
             res.write('<head><title>My first page</title></head>');
