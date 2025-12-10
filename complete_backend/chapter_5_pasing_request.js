@@ -30,6 +30,8 @@ const server = http.createServer((req, res) =>{
     //         res.write('</html>');
     //         return res.end();
     // }
+
+    console.log(req.url, req.method)
 // -----------------user input page----------------
     if (req.url === '/'){
         res.setHeader('Content-Type', 'text/html');
@@ -48,13 +50,36 @@ const server = http.createServer((req, res) =>{
         res.write('</body');
         res.write('</html>');
         return res.end();
-    }else if (req.url.toLowerCase() === "/submit-details" && req.method == "post"){
+    } else if (req.url.toLowerCase() === "/submit-details" && req.method.toLowerCase() === "post") {
+        const body = [];
         req.on('data', chunk => {
-            console.log(chunk);
+            console.log('Received chunk:', chunk.toString());
+            body.push(chunk);
         });
-        fs.writeFileSync('user.txt',  'Prashant jain');
-        res.statusCode = 302;
-        res.setHeader('Location', '/');
+
+
+        req.on('end', () => {
+            const parsed = Buffer.concat(body).toString();
+            
+            const params = new URLSearchParams(parsed);
+            console.log('Parsed parameters:', params);
+            const bodyObject = {};
+            for (const [key, value] of params.entries()){
+                bodyObject[key] = val;
+
+            }
+            console.log(bodyObject);
+
+
+
+
+
+            // save received body (fallback to placeholder if empty)
+            fs.writeFileSync('user.txt', parsed || 'Prashant jain');
+            res.statusCode = 302;
+            res.setHeader('Location', '/');
+            return res.end();
+        });
     }
     // res.setHeader('Content-Type', 'text/html');
     // res.write('<html>');
