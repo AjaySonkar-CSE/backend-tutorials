@@ -17,8 +17,43 @@ const fs = require('fs');
 // rename
 // unlink
 
-// ------------------------// writefile
-fs.writeFile("hey.txt", "hey lksdf", function(err){
-    if(err) console.log(err);
-    else console.log("done");
-})
+// // ------------------------// writefile
+// fs.writeFile("hey.txt", "hey lksdf", function(err){
+//     if(err) console.log(err);
+//     else console.log("done");
+// })
+
+
+// // ------------------------// appendfile
+// fs.appendFile("hey.txt", " adding some data appending some data", function(err){
+//     if(err) console.log(err);
+//     else console.log("done appending");
+// })
+
+
+// // // ------------------------// rename
+// fs.rename("hey.txt", "hello.txt", function(err){
+//     if(err) console.error(err);
+//     else console.log("done");
+// })
+
+
+
+// // ------------------------// copyfile
+// fs.copyFile("hello.txt", "./copy/copy_hello.txt", function(err){
+//     if(err) console.error(err);
+//     else console.log("done copying");
+
+// })
+
+
+// // ------------------------// unlink
+// fs.unlink("./copy/copy_hello.txt", function(err){
+//     if(err) console.error(err);
+//     else console.log("done deleting");
+// })
+
+
+
+
+//   43:30
