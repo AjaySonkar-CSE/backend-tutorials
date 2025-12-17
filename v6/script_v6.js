@@ -33,6 +33,14 @@ app.get("/", function(req, res){
 
 });
 
+app.get("/profile/:username", function(req, res){
+    res.send(req.params.username);
+})
+
+app.get("/profile/:username/:age", function(req, res){
+    res.send(`Username is ${req.params.username} and age is ${req.params.age}`);
+})
+
 app.listen(3000, function(){
     console.log("server started at port 3000"); 
 
