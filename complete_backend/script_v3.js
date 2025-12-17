@@ -1,4 +1,4 @@
-// NPM understanding
+/// NPM understanding
 
 // installing and uninstalling anything basics & advanced
 // install ->  npm i(install) package Ka name 

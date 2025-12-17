@@ -2,7 +2,7 @@
 
 // MERN
 
-// Introduction to Express.js
+// Introduction to Express.js --------------- npm i express
 // express js ek npm package hai
 // framework -> flow 
 // manages everything from receiving the request and giving the response
@@ -34,6 +34,13 @@ app.get('/',function (req, res){
 
 app.get("/profile", function(req, res){
     res.send("profile page")
+    return next(new Error("kuch to error hai"));
+})
+
+//----------------------------------------------// error handling
+app.use((err, req, res, next)=>{
+    console.error(err.stack);
+    res.status(500).send("something broke!");
 })
 
 app.listen(3000)
