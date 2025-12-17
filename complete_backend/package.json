@@ -5,6 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "node script_v2.js",
+    "chacha": "echo \"this is good\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ajay",
