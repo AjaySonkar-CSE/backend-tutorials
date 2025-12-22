@@ -26,6 +26,13 @@ app.get("/", function(req, res){
     })
 })
 
+app.get("/file/:filename", function(req, res){
+    fs.readFile(`./files/${req.params.filename}`, 'utf-8', function(err, filedata){
+        res.render('show');
+
+    })
+})
+
 app.post("/create", function(req, res){
     console.log(req.body);
 
