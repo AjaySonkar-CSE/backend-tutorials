@@ -33,6 +33,17 @@ app.get("/file/:filename", function(req, res){
     })
 })
 
+app.get("/edit/:filename", function(req, res){
+    res.render('edit', {filename: req.params.filename});
+})
+
+app.post('/edit', function(req, res){
+    console.log(req.body);
+    fs.rename(`./files/${req.body.title}`, `./files/${req.body.new}`, function(err){
+        res.redirect("/");
+    })
+})
+
 app.post("/create", function(req, res){
     console.log(req.body);
 
