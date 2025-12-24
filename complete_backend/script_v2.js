@@ -3,6 +3,7 @@
 // Installing Node.js and npm.
 
 // npm init -y -----------<  package.json
+// npm i express ---------<  package-lock.json
 
 // Working with modules.
 // File system operations.

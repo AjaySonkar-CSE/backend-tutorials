@@ -1,0 +1,23 @@
+Database -> Collections -> Documents
+CODE
+-------------------------------------------------------
+
+
+
+
+
+CODE                               Database
+-------------------------------------------------------
+mongoose.connect  ->         database create
+model create      ->         Collection
+CREATE code       ->         document
+
+
+
+v11 -------------------------------------------------- v11
+
+mongodb installation
+mongodb connection
+schema
+model
+crud
