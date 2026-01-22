@@ -1,0 +1,10 @@
+npm init -y
+npm i jsonwebtoken bcrypt
+npm i express
+npm i cookie-parser
+
+1)  Cookie kaise set karte hain
+2)  bcrypt kaise use karte hain for password encryption and decryption 
+3) jwt kya hia and jwt main data kaise store karein and baahar nikaalein
+
+
