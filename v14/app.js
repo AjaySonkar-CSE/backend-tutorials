@@ -30,14 +30,15 @@ app.get('/jwtt', function (req, res){
 })
 
 app.get("/readjwt", function(req, res){
-    let data = jwt.verify("eyJhbGciOiJIUz)
+    let data = jwt.verify(req.cookies.token, "secret");
+    console.log(data);
+    res.send("done");
+})
 
 app.get('/', function (req, res){
     res.cookie("name", "Raigarh SM");
     res.send("done");
 })
-
-
 
 app.get('/read', function (req, res){
     console.log(req.cookies);
