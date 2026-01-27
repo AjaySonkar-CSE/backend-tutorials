@@ -59,15 +59,11 @@ app.post('/login', async(req, res) => {
             res.send("logged in successfully");
         }
         else res.send("something went wrong");
-
     })
 })
 
 app.get('/logout', (req, res) => {
     res.clearCookie('token', "");
     res.redirect('/');
-    
-
 });
-
 app.listen(3000);
