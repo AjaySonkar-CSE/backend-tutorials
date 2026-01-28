@@ -1,5 +1,5 @@
 {
-  "name": "v16",
+  "name": "v17",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,7 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
