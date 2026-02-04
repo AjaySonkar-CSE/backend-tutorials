@@ -4,16 +4,31 @@ import './style.css';
 
 import Menu from './menuApi';
 import MenuCard from './MenuCard';
+import Navbar from './Navbar';
+
+
+const uniqueList = [
+  ... new Set(
+  Menu.map((curElem) => {
+    return curElem.category;
+  })
+),
+"All",
+]
+
+// console.log(uniqueList);
 
 const Resturant = () => {
 
-    // const myStyle = { color: "blue" };
-
-    // hucks  image from menuApi.js
     const [menuData, setMenuData] = useState(Menu);
-    // console.log("--->", menuData);
+    const [menuList, setMenuList] = useState(uniqueList);
 
     const filterItem = (category) => {
+
+      if(category === "All"){
+        setMenuData(Menu);
+        return;
+      }
       const updatedList = Menu.filter((curElem) => {
         return curElem.category === category;
       })
@@ -24,15 +39,7 @@ const Resturant = () => {
 
     return <>
 
-      <nav className='navbar'>
-        <div className="btn-group">
-          <button className="btn-group__item" onClick={() => filterItem("breakfast")}>Breackfast</button>
-          <button className="btn-group__item">Lunch</button>
-          <button className="btn-group__item">Evening</button>
-          <button className="btn-group__item">Dinner</button>
-          <button className="btn-group__item">All</button>
-        </div>
-      </nav>
+      <Navbar filterItem={filterItem} menuList={menuList}/>
       < MenuCard menuData={menuData}/>
     
     </>
