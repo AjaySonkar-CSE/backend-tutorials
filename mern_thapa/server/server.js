@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const router = require("./router/auth-router");
@@ -11,8 +12,8 @@ app.use("/api/auth", router);
 
 
 connectDB().then(() => {
-app.listen(5000, () => {
-    console.log("Server is running on port 5000");
+    app.listen(5000, () => {
+        console.log("Server is running on port 5000");
     });
 });
 
