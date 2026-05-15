@@ -9,6 +9,7 @@
 
 
 const User = require("../models/user-models");
+const bcrypt = require("bcrypt");
 
 // home logic
 
@@ -37,6 +38,10 @@ const register = async (req, res) => {
         if (userExist) {
             return res.status(400).json({ message: "User already existtt" });
         }
+
+        // hash the password
+        // const saltRounds = 10;
+        // const hash_password = await bcrypt.hash(password, saltRounds);
 
         const userCreated = await User.create({
             username,

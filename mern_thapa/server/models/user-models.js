@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 
 
@@ -24,6 +25,26 @@ const userSchema = new mongoose.Schema({
         default: false,
     }
 
+});
+
+// secure the password using bcryptjs
+userSchema.pre("save", async function (next) {
+    // console.log("pre save called", this);
+
+    const user = this;
+
+    if(!this.isModified("password")){
+        next();
+    }
+
+    try {
+        const saltRounds = await bcrypt.genSalt(10);
+        const hash_password = await bcrypt.hash(this.password, saltRounds);
+        user.password = hash_password;
+        
+    } catch (error) {
+        next(error);
+    }
 });
 
 
