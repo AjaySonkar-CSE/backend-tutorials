@@ -51,7 +51,7 @@ const register = async (req, res) => {
         });
 
         res
-            .status(200)
+            .status(201)
             .json({message: "User created successfully", user: userCreated, token: await userCreated.generateToken() , 
                 userId: userCreated._id.toString(),
             });
@@ -61,4 +61,36 @@ const register = async (req, res) => {
     }
 }
 
-module.exports = {home, register};
+
+const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;   
+
+        const userExist = await User.findOne({ email });
+        console.log(userExist);
+
+        if (!userExist) {
+            return res.status(400).json({ message: "Invalid credentials" });
+        }
+
+        // const user = await bcrypt.compare(password, userExist.password);
+        const user = userExist.comparePassword(password);
+
+        if (user) {
+            res     
+            .status(200)
+            .json({message: "login successfull", 
+                token: await userExist.generateToken() , 
+                userId: userExist._id.toString(),
+            });
+        }else {
+            res.status(400).json({ message: "Invalid credentials" });
+        }
+
+    }
+    catch (error) {
+        res.status(500).json({ message: "Internal server error" });
+    }
+}
+
+module.exports = {home, register, login};
