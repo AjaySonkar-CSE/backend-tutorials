@@ -8,6 +8,8 @@
 //  and separating concerns, making it easier to maintain and scale the application.
 
 
+const User = require("../models/user-models");
+
 // home logic
 
 const home = async (req, res) => {
@@ -26,10 +28,26 @@ const home = async (req, res) => {
 
 const register = async (req, res) => {
     try {
-        console.log(req.body);
+        // console.log(req.body);
+
+        const { username, email, phone, password } = req.body;
+
+        const userExist = await User.findOne({ email });
+
+        if (userExist) {
+            return res.status(400).json({ message: "User already existtt" });
+        }
+
+        const userCreated = await User.create({
+            username,
+            email,
+            phone,
+            password,
+        });
+
         res
             .status(200)
-            .json({message: req.body });
+            .json({message: "User created successfully", user: userCreated });
 
     } catch (error) {
         console.log(error);
