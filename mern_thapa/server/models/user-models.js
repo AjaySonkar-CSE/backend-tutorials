@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 
 
@@ -47,8 +48,40 @@ userSchema.pre("save", async function (next) {
     }
 });
 
+// generate token method
+userSchema.methods.generateToken = async function () {
+    try{
+        return jwt.sign({
+            userId: this._id.toString(),
+            email: this.email,
+            isAdmin: this.isAdmin,
+        }, process.env.JWT_SECRET_KEY, {
+            expiresIn: "1d",
+        });
+    } catch (error){
+        console.log(error);
+    }
+}
 
 // define a model or the collection in the database
 const User = new mongoose.model("User", userSchema);
 
 module.exports = User;
+
+
+// what is jwt
+// JWT stands for JSON Web Token. It is a compact, URL-safe means of representing claims to be
+//  transferred between two parties.
+
+
+// components of jwt
+// 1. Header: The header typically consists of two parts: the type of token (JWT) and the signing
+//  algorithm being used (e.g., HMAC SHA256 or RSA).
+
+// 2. Payload: The payload contains the claims, which are statements about an entity
+//  (typically, the user) and additional data. Claims can be registered (predefined), public,
+//  or private.
+
+// 3. Signature: The signature is created by taking the encoded header, the encoded payload, 
+// a secret key, and the specified algorithm to sign the token. This ensures that the token
+//  has not been tampered with and can be verified by the recipient using the same secret key.

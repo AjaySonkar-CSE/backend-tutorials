@@ -52,7 +52,9 @@ const register = async (req, res) => {
 
         res
             .status(200)
-            .json({message: "User created successfully", user: userCreated });
+            .json({message: "User created successfully", user: userCreated, token: await userCreated.generateToken() , 
+                userId: userCreated._id.toString(),
+            });
 
     } catch (error) {
         console.log(error);
