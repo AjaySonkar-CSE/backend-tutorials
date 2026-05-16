@@ -32,4 +32,6 @@ router.route("/register").post(validate(signupSchema), authcontrollers.register)
 router.route("/login").post(authcontrollers.login);
 
 
+
+
 module.exports = router;
