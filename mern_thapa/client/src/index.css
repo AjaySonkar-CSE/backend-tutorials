@@ -19,7 +19,8 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #479cf7;
+
+    background-color: #3a3a3a;
 
 
 }
@@ -235,7 +236,7 @@ body {
 .main-heading {
     font-size: 3.2rem;
     font-weight: bold;
-    color: #222;
+    color: #ffffff;
 }
 
 .container {
@@ -271,7 +272,7 @@ body {
     margin-bottom: 0.8rem;
     font-size: 1.6rem;
     font-weight: 500;
-    color: #333;
+    color: #ffffff;
     text-transform: capitalize;
 }
 
@@ -324,5 +325,404 @@ body {
 
     .main-heading {
         font-size: 2.6rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* Error Page CSS */
+
+.error-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 2rem;
+}
+
+.error-content {
+    text-align: center;
+}
+
+.error-content h2 {
+    font-size: 10rem;
+    color: #646cff;
+    font-weight: bold;
+}
+
+.error-content h1 {
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    color: #222;
+}
+
+.error-content p {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.btns button {
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #646cff;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btns button:hover {
+    background-color: #4b50d1;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .error-content h2 {
+        font-size: 7rem;
+    }
+
+    .error-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .error-content p {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* About Page CSS */
+
+.section-about {
+    padding: 6rem 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    gap: 5rem;
+}
+
+.grid-two-column {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.about-image {
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+}
+
+.about-content p:first-child {
+    color: #646cff;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.about-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: #222;
+}
+
+.about-details p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #646cff;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #4b50d1;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .grid-two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .about-content h1 {
+        font-size: 2.8rem;
+    }
+}
+
+
+
+
+/* Service Page CSS */
+
+.section-services {
+    padding: 6rem 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-heading {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.service-heading p {
+    color: #646cff;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.service-heading h1 {
+    font-size: 3.5rem;
+    color: #222;
+    margin-top: 1rem;
+}
+
+.grid {
+    display: grid;
+    gap: 3rem;
+}
+
+.grid-three-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.service-card {
+    background-color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 2rem;
+}
+
+.service-card h2 {
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+}
+
+.service-card p {
+    font-size: 1.5rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #646cff;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #4b50d1;
+}
+
+/* Responsive Design */
+
+@media (max-width: 992px) {
+    .grid-three-column {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-three-column {
+        grid-template-columns: 1fr;
+    }
+
+    .service-heading h1 {
+        font-size: 2.8rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Login / Register Page CSS */
+
+.section-registration {
+    padding: 6rem 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    gap: 5rem;
+}
+
+.grid-two-column {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+/* Image Section */
+
+.registration-image {
+    text-align: center;
+}
+
+.registration-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 1rem;
+}
+
+/* Form Section */
+
+.registration-form {
+    background-color: #fff;
+    padding: 4rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.main-heading {
+    font-size: 3rem;
+    color: #222;
+    margin-bottom: 2rem;
+}
+
+.form-control {
+    margin-bottom: 2rem;
+}
+
+.form-control label {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.6rem;
+    outline: none;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.form-control input:focus {
+    border-color: #646cff;
+    box-shadow: 0 0 5px rgba(100, 108, 255, 0.4);
+}
+
+/* Button */
+
+.btn {
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 0.6rem;
+    background-color: #646cff;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #4b50d1;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .grid-two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-form {
+        padding: 3rem 2rem;
+    }
+
+    .main-heading {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .registration-image {
+        order: -1;
     }
 }

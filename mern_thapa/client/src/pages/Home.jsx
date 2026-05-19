@@ -1,3 +1,4 @@
+import { Analytics } from "../components/analytics";
 export const Home = () => {
     return <>
 
@@ -12,7 +13,7 @@ export const Home = () => {
                             <a href="/contact">
                                 <button className="btn btn-primary">Contact Me</button>
                             </a>
-                            <a href="/services">
+                            <a href="/service">
                                 <button className="btn btn-secondary">learn More</button>
                             </a>
                         </div>
@@ -28,26 +29,9 @@ export const Home = () => {
                 </div>
             </selection>
 
-            <section className="section-analysis">
-                <div className="container grid grid-four-column">
-                    <div className="div1">
-                        <h3>10K</h3>
-                        <p>Happy Customers</p>
-                    </div>
-                    <div className="div1">
-                        <h3>20K</h3>
-                        <p>Projects Completed</p>
-                    </div>
-                    <div className="div1">
-                        <h3>30K</h3>
-                        <p>Happy Customers</p>
-                    </div>
-                    <div className="div1">
-                        <h3>40K</h3>
-                        <p>Happy Customers</p>
-                    </div>
-                </div>
-            </section>
+            <Analytics />
+
+
 
 
             <selection className="section-hero">
@@ -67,7 +51,7 @@ export const Home = () => {
                             <a href="/contact">
                                 <button className="btn btn-primary">Contact Me</button>
                             </a>
-                            <a href="/services">
+                            <a href="/service">
                                 <button className="btn btn-secondary">learn More</button>
                             </a>
                         </div>

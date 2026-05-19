@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 export const Register = () => {
 
 
@@ -25,7 +26,7 @@ export const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         alert(user);
-        
+
     }
 
 
@@ -59,6 +60,9 @@ export const Register = () => {
                                 </div>
 
                                 <button type="submit" className="btn btn-primary">Register</button>
+                                <Link to="/Login">
+                                    <button className="btn btn-secondary">Login</button>
+                                </Link>
                             </form>
 
                         </div>

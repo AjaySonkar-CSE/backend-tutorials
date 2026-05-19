@@ -1,32 +1,34 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 export const Login = () => {
 
-      const [user, setUser] = useState({
-            
-            email: "",
-            
-            password: "",
+    const [user, setUser] = useState({
+
+        email: "",
+
+        password: "",
+    });
+
+    const handleInput = (e) => {
+        console.log(e);
+        let name = e.target.name;
+        let value = e.target.value;
+
+        setUser({
+            ...user,
+            [name]: value
         });
-    
-        const handleInput = (e) => {
-            console.log(e);
-            let name = e.target.name;
-            let value = e.target.value;
-    
-            setUser({
-                ...user,
-                [name]: value
-            });
-    
-        }
-    
-        //handle form submit
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-            alert(user);
-            
-        }
-    
+
+    }
+
+    //handle form submit
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        alert(user);
+
+    }
+
 
     return <>
         <section>
@@ -44,13 +46,16 @@ export const Login = () => {
                                     <label htmlFor="email">Email</label>
                                     <input type="email" name="email" id="email" placeholder="Enter your email" required autoComplete="off" value={user.email} onChange={handleInput} />
                                 </div>
-                                
+
                                 <div className="form-control">
                                     <label htmlFor="password">Password</label>
                                     <input type="password" name="password" id="password" placeholder="Enter your password" required autoComplete="off" value={user.password} onChange={handleInput} />
                                 </div>
 
-                                <button type="submit" className="btn btn-primary">Register</button>
+                                <button type="submit" className="btn btn-primary">Login</button>
+                                <Link to="/Register">
+                                    <button className="btn btn-secondary">Register</button>
+                                </Link>
                             </form>
 
                         </div>
