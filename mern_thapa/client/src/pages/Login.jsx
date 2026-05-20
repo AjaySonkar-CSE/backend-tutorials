@@ -25,7 +25,7 @@ export const Login = () => {
     //handle form submit
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(user);
+        
 
     }
 
