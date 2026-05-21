@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {useNavigate} from "react-router-dom";
+import { useAuth } from "../store/auth";
 export const Register = () => {
-
 
     const [user, setUser] = useState({
         username: "",
@@ -11,7 +11,9 @@ export const Register = () => {
         password: "",
     });
 
+
     const navigate = useNavigate();
+    const {storetokenInLS} = useAuth();
 
     const handleInput = (e) => {
         console.log(e);
@@ -44,6 +46,13 @@ export const Register = () => {
 
 
             if (response.ok) {
+                const res_data = await response.json();
+                console.log("server register response", res_data);
+
+
+                storetokenInLS(res_data.token);
+
+                
                 setUser({
                     username: "",
                     email: "",
