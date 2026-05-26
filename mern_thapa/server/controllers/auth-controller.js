@@ -94,4 +94,15 @@ const login = async (req, res) => {
     }
 }
 
-module.exports = {home, register, login};
+const user = async (req, res) => {
+    try {
+        const userData = req.user;
+        console.log(userData);
+
+        return res.status(200).json({ user: userData });
+    }catch (error) {
+        console.log("error in user controller", error);
+    }
+}
+
+module.exports = {home, register, login, user};
