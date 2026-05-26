@@ -1,6 +1,10 @@
 // About.jsx
 import { Analytics } from "../components/analytics";
+import {useAuth} from "../store/auth";
 export const About = () => {
+       
+        const {user} = useAuth();
+        console.log("about page :", user);
     return (
         <>
             <section className="section-about">
@@ -16,7 +20,8 @@ export const About = () => {
                     </div>
 
                     <div className="about-content">
-                        <p>Welcome To Our Website</p>
+
+                        <h1>welcome {user ? user.userData.username : "to our website"}</h1>
 
                         <h1>Why Choose Us?</h1>
 
