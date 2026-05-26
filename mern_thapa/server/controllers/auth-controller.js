@@ -99,7 +99,7 @@ const user = async (req, res) => {
         const userData = req.user;
         console.log(userData);
 
-        return res.status(200).json({ user: userData });
+        return res.status(200).json({ userData });
     }catch (error) {
         console.log("error in user controller", error);
     }
