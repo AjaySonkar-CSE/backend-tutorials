@@ -53,6 +53,8 @@ export const Contact = () => {
             if (response.ok) {
                 alert("message sent successfully");
                 setContact(defaultContact);
+                const data = await response.json();
+                console.log(data);
             }
         } catch (error) {
             console.error("Error submitting contact form:", error);
