@@ -44,10 +44,11 @@ export const Register = () => {
             body: JSON.stringify(user),
             })
 
+            const res_data = await response.json();
+            console.log("server register response", res_data.extraDetails);
 
             if (response.ok) {
-                const res_data = await response.json();
-                console.log("server register response", res_data);
+                
 
 
                 storetokenInLS(res_data.token);
@@ -61,8 +62,10 @@ export const Register = () => {
                 });
                 navigate("/Login");
             } else {
-                const errorData = await response.json();
-                console.log("Error:", errorData);
+
+                alert(res_data.extraDetails ? res_data.extraDetails : res_data.message);
+                // const errorData = await response.json();
+                // console.log("Error:", errorData);
             }
         console.log(response);
 

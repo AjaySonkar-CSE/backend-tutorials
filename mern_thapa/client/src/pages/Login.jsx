@@ -43,9 +43,12 @@ export const Login = () => {
 
             });
             console.log("login response",response);
+
+
+            const res_data = await response.json();
             if (response.ok) {
 
-                const res_data = await response.json();
+                
 
                 storetokenInLS(res_data.token);
 
@@ -56,6 +59,9 @@ export const Login = () => {
                     password: "",
                 })
                 navigate("/");
+            }else{
+                alert(res_data.extraDetails ? res_data.extraDetails : res_data.message);
+                // console.log("Login failed. Please check your credentials.");
             }
         }catch (error) {
             console.log("login", error);
