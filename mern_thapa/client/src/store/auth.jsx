@@ -46,7 +46,28 @@ export const AuthProvider = ({children}) => {
         }
     }
 
+    // to fetch the services data from the backend
+
+    const getServices = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/api/data/service", {
+                method: "GET",
+                
+        });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("services data : ", data);
+            }
+        } catch (error) {
+            console.log("Error in services data fetching", error);
+        }
+    }
+
+
     useEffect(() => {
+
+        getServices();
 
         userAuthentication();
 
