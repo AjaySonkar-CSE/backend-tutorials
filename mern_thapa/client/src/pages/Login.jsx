@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
-const URL ="http://localhost:5000/api/auth/login";
+const URL = "http://localhost:5001/api/auth/login";
 
 export const Login = () => {
 
@@ -14,8 +15,8 @@ export const Login = () => {
         password: "",
     });
 
-      const navigate = useNavigate();
-    const {storetokenInLS} = useAuth();
+    const navigate = useNavigate();
+    const { storetokenInLS } = useAuth();
 
     const handleInput = (e) => {
         console.log(e);
@@ -42,13 +43,13 @@ export const Login = () => {
                 body: JSON.stringify(user),
 
             });
-            console.log("login response",response);
+            console.log("login response", response);
 
 
             const res_data = await response.json();
             if (response.ok) {
 
-                
+
 
                 storetokenInLS(res_data.token);
 
@@ -59,11 +60,11 @@ export const Login = () => {
                     password: "",
                 })
                 navigate("/");
-            }else{
-                alert(res_data.extraDetails ? res_data.extraDetails : res_data.message);
+            } else {
+                toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
                 // console.log("Login failed. Please check your credentials.");
             }
-        }catch (error) {
+        } catch (error) {
             console.log("login", error);
         }
 

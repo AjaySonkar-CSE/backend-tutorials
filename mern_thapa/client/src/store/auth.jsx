@@ -1,14 +1,14 @@
-import {createContext, useContext} from "react";
+import { createContext, useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
 
     const [token, setToken] = useState(localStorage.getItem("token"));
     const [user, setUser] = useState("");
-    const[services, setServices] = useState([]);
+    const [services, setServices] = useState([]);
 
 
     const storetokenInLS = (serverToken) => {
@@ -31,7 +31,7 @@ export const AuthProvider = ({children}) => {
     const userAuthentication = async () => {
         try {
 
-            const response = await fetch("http://localhost:5000/api/auth/user", {
+            const response = await fetch("http://localhost:5001/api/auth/user", {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -42,7 +42,7 @@ export const AuthProvider = ({children}) => {
                 console.log("user data : ", data);
                 setUser(data);
             }
-        }catch (error) {
+        } catch (error) {
             console.log("Error in user data fetching", error);
         }
     }
@@ -51,10 +51,10 @@ export const AuthProvider = ({children}) => {
 
     const getServices = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/data/service", {
+            const response = await fetch("http://localhost:5001/api/data/service", {
                 method: "GET",
-                
-        });
+
+            });
 
             if (response.ok) {
                 const data = await response.json();
@@ -77,7 +77,7 @@ export const AuthProvider = ({children}) => {
 
 
 
-    return <AuthContext.Provider value={{storetokenInLS, LogoutUser, isLoggedIn, user, services}}>
+    return <AuthContext.Provider value={{ storetokenInLS, LogoutUser, isLoggedIn, user, services }}>
         {children}
     </AuthContext.Provider>
 }
@@ -85,7 +85,7 @@ export const AuthProvider = ({children}) => {
 
 export const useAuth = () => {
     const authContextValue = useContext(AuthContext);
-    if(!authContextValue) {
+    if (!authContextValue) {
         throw new Error("useAuth must be used within an AuthProvider in main.jsx");
     }
     return authContextValue;

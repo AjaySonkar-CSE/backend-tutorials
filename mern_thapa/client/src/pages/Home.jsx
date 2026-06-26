@@ -1,4 +1,5 @@
 import { Analytics } from "../components/analytics";
+
 export const Home = () => {
     return <>
 
@@ -30,9 +31,6 @@ export const Home = () => {
             </selection>
 
             <Analytics />
-
-
-
 
             <selection className="section-hero">
 

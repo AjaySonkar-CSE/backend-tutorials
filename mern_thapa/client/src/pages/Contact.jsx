@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import {useAuth} from "../store/auth";
+import { useAuth } from "../store/auth";
 
 const defaultContact = {
     username: "",
@@ -15,7 +15,7 @@ export const Contact = () => {
     const [userData, setUserData] = useState(true);
 
 
-    const {user} = useAuth();
+    const { user } = useAuth();
 
 
     if (userData && user) {
@@ -40,14 +40,14 @@ export const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-            const response = await fetch("http://localhost:5000/api/form/contact", {
+        try {
+            const response = await fetch("http://localhost:5001/api/form/contact", {
                 method: "POST",
-                headers:{
+                headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(contact),
-                
+
             })
 
             if (response.ok) {

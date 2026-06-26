@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 export const Register = () => {
 
@@ -13,7 +13,7 @@ export const Register = () => {
 
 
     const navigate = useNavigate();
-    const {storetokenInLS} = useAuth();
+    const { storetokenInLS } = useAuth();
 
     const handleInput = (e) => {
         console.log(e);
@@ -35,25 +35,25 @@ export const Register = () => {
 
         try {
 
-        
-        const response = await fetch("http://localhost:5000/api/auth/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
+
+            const response = await fetch("http://localhost:5001/api/auth/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
             })
 
             const res_data = await response.json();
             console.log("server register response", res_data.extraDetails);
 
             if (response.ok) {
-                
+
 
 
                 storetokenInLS(res_data.token);
 
-                
+
                 setUser({
                     username: "",
                     email: "",
@@ -67,10 +67,10 @@ export const Register = () => {
                 // const errorData = await response.json();
                 // console.log("Error:", errorData);
             }
-        console.log(response);
+            console.log(response);
 
-        }catch (error) {
-                console.log("register",error);
+        } catch (error) {
+            console.log("register", error);
         }
 
     };
