@@ -9,6 +9,9 @@ import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
 import { Navbar } from "./components/Navbar";
 import { Error } from "./pages/Error";
+import { AdminLayoute } from "./components/layouts/Admin-Layout";
+import { AdminUsers } from "./pages/Admin-Users";
+import { AdminContacts } from "./pages/Admin-Contacts";
 
 
 const App = () => {
@@ -25,6 +28,12 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/*" element={<Error />} />
+          <Route path="/admin" element={<AdminLayoute />}>
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="contacts" element={<AdminContacts />} />
+
+
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
